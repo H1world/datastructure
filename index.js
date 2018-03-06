@@ -314,6 +314,21 @@ class Hex {
 }
 
 
-Array.prototype.groupBy = (fn) => {
-  this.
+// Array.prototype.groupBy = (fn) => {
+//   this.
+// }
+
+//Which are in?找出array2中存在的array1数组 如果没有则返回空
+function inArray(array1,array2){
+  //...
+  let a3 = array2.join(' ');
+  let a = [];
+  let a4 = array1.filter(item => 
+  {  
+    if(0 <= a3.indexOf(item)){
+      a.push(item)
+    }
+  }
+  );
+  return a.sort();
 }
