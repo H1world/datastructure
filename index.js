@@ -183,25 +183,26 @@ function maxCommonDivisor(big, small) {
 
 // 快速排序
 function quickSort(arr) {
-  if (arr.length < 2) {
+  if (arr.length <= 1) {
     return arr;
   }
 
-  let pivot = Math.floor(Math.random() * arr.length);
+  let pivotIndex = Math.floor(arr.length / 2);
+  let pivot = arr.splice(pivotIndex,1)[0];
   let less = [];
   let greater = [];
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > arr[pivot]) {
+    if (arr[i] > pivot) {
       greater.push(arr[i]);
     }
 
-    if (arr[i] < arr[pivot]) {
+    if (arr[i] < pivot) {
       less.push(arr[i]);
     }
   }
 
-  return [...quickSort(less), arr[pivot], ...quickSort(greater)];
+  return quickSort(left).concat([pivot],quickSort(greater));
 }
 
 
@@ -332,3 +333,6 @@ function inArray(array1,array2){
   );
   return a.sort();
 }
+
+//快查
+let quickSort
