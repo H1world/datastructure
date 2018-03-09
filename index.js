@@ -334,5 +334,27 @@ function inArray(array1,array2){
   return a.sort();
 }
 
-//快查
-let quickSort
+//浅拷贝
+function shallowCopy(subObj){
+  if(!subObj || typeof subObj !== 'object'){
+    console.log('你传入的不是对象!')
+  }
+  //判断subObj的类型
+  var targetObj = subObj.constructor == Array ? [] : {};
+  for(let i in subObj){
+    //判断属于subObj原型链的项.
+    if (subObj.hasOwnProperty(i)){
+      targetObj[i] = subObj[i];
+    }
+  }
+  return targetObj;
+}
+
+//深拷贝   json.parse
+var deepCapy = ((subObj) => {
+  if (!subObj || typeof subObj !== 'object') {
+    console.log('你传入的不是对象!')
+    return;
+  }
+  return window.JSON ? JSON.parse(JSON.stringify(subObj)) : console.log('不支持jsonapi')
+})
