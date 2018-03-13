@@ -358,3 +358,14 @@ var deepCapy = ((subObj) => {
   }
   return window.JSON ? JSON.parse(JSON.stringify(subObj)) : console.log('不支持jsonapi')
 })
+
+// 数组遍历  返回由2 0 1 7组合成的所有组合数 <不是很懂>
+let nummber = 2017;
+let arr = String(nummber).split("");
+function fn(arr, init = []) {
+  return arr.reduce((t, i, k) => {
+    const n = [...arr];
+    n.splice(k, 1);
+    return [...t, [...init, i], ...fn(n, [...init, i])];
+  }, [])
+}
